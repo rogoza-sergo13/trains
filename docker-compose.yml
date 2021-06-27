@@ -1,0 +1,23 @@
+version: '3'
+services:
+  db:
+    image: postgres:12.0-alpine
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=api
+
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_NAME=api
+      - DB_PORT=5432
+    depends_on:
+      - db

@@ -1,0 +1,21 @@
+<html>
+<head>
+    <title>Item Details</title>
+
+</head>
+<body style="color: #030302; background-color: #259c8e">
+
+
+<ul>
+    {% for train in trains %}
+    <li>Поезд <b style="font-size: 20px">{{train['start_station']}} - {{train['finish_station']}}</b> отправляется в
+        <b style="font-size: 20px">{{train['start_time']}}</b>, приблизительное время в пути составит
+        <b style="font-size: 20px">{{train['travel_time']}}</b></li>
+    {% endfor %}
+</ul>
+
+
+
+
+</body>
+</html>
