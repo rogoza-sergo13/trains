@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 
 
-def train(a, b, c):
+def get_trains(a, b, c):
     url = f'https://pass.rw.by/ru/route/?from={a}&from_exp=&from_esr=&to={b}&to_exp=&to_esr=&front_date=%D0%B7%D0%B0' \
           f'%D0%B2%D1%82%D1%80%D0%B0&date={c} '
     response = requests.get(url)
@@ -13,6 +13,7 @@ def train(a, b, c):
     travel_time = []
     start_time = []
     trains = []
+
     for i in items:
         time = i.find('div', class_='sch-table__time train-from-time').text
         station = i.find('div', class_='sch-table__station train-from-name').text
